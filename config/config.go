@@ -3,6 +3,7 @@ package config
 import (
 	"log"
 
+	"example.com/config/utils"
 	"gopkg.in/go-ini/ini.v1"
 )
 
@@ -19,6 +20,7 @@ var Config ConfigList
 // main()関数より先に実行されるinit()関数を定義して ConfigList を読み込む
 func init() {
 	LoadConfig()
+	utils.LoggingSettings(Config.LogFile)
 }
 
 func LoadConfig() {
